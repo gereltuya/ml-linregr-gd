@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-import sklearn
-from sklearn.datasets.samples_generator import make_regression
 
 def compute_cost_function(m, t0, t1, x, y):
   return 1/2/m * sum([(t0 + t1* np.asarray([x[i]]) - y[i])**2 for i in range(m)])
@@ -52,8 +50,9 @@ def plot_cost_function(x, y, m):
 
 if __name__ == '__main__':
 
-    x, y = make_regression(n_samples=100, n_features=1, n_informative=1,
-                        random_state=0, noise=35)
+    df = pd.read_csv('data/test_2d.txt', names=['x','y'])
+    x = df['x']
+    y = df['y']
 
     alpha = 0.01
     ep = 0.01
