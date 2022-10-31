@@ -1,52 +1,51 @@
 import numpy as np
 import pandas as pd
 
-def compute_cost_function(m, t0, t1, x, y):
-  return 1/2/m * sum([(t0 + t1* np.asarray([x[i]]) - y[i])**2 for i in range(m)])
+def compute_cost(m, w0, w1, x, y):
+    return 1/m * sum([(w0 + w1* np.asarray([x[i]]) - y[i])**2 for i in range(m)])
 
 def gradient_descent(alpha, x, y, ep=0.0001, max_iter=1500):
     converged = False
     iter = 0
     m = x.shape[0]
 
-    t0 = 0
-    t1 = 0
-
-    J = compute_cost_function(m, t0, t1, x, y)
-    print('J=', J);
+    w0 = 0
+    w1 = 0
+    J = compute_cost(m, w0, w1, x, y)
     num_iter = 0
+
+    print('\n---Gradient descent started')
+    print('\nFirst weights: weight0 = ' + str(w0)+'; weight1 = '+str(w1))
+    print('\nFirst error value: J =', J[0]);
+
     while not converged:
-        grad0 = 1.0/m * sum([(t0 + t1*np.asarray([x[i]]) - y[i]) for i in range(m)])
-        grad1 = 1.0/m * sum([(t0 + t1*np.asarray([x[i]]) - y[i])*np.asarray([x[i]]) for i in range(m)])
+        grad0 = 1.0/m * sum([(w0 + w1*np.asarray([x[i]]) - y[i]) for i in range(m)])
+        grad1 = 1.0/m * sum([(w0 + w1*np.asarray([x[i]]) - y[i])*np.asarray([x[i]]) for i in range(m)])
 
-        temp0 = t0 - alpha * grad0
-        temp1 = t1 - alpha * grad1
+        temp0 = w0 - alpha * grad0
+        temp1 = w1 - alpha * grad1
 
-        t0 = temp0
-        t1 = temp1
+        w0 = temp0
+        w1 = temp1
 
-        e = compute_cost_function(m, t0, t1, x, y)
-        print ('J = ', e)
+        e = compute_cost(m, w0, w1, x, y)
+        # print('J = ', e)
+
+        if abs(J - e) < 0.0001:
+            print('\n---Gradient descent stopped: Too little difference in error!')
+            converged = True
+
         J = e
         iter += 1
 
         if iter == max_iter:
-            print ('Max interactions exceeded!')
+            print('\n---Gradient descent stopped: Max interactions exceeded!')
             converged = True
 
-    return t0,t1
+    print('\nIteration count: num_iter =', num_iter);
+    print('\nLast error value: J =', J[0]);
 
-def plot_cost_function(x, y, m):
-    t0 = list(range(0, x.shape[0]))
-    j_values = []
-    for i in range(len(t0)):
-        j_values.append(compute_cost_function(m, i, i, x, y)[0])
-    print ('j_values', len(j_values), len(x), len(y))
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    ax.plot(x, y, j_values, label='parametric curve')
-    ax.legend()
-    plt.show()
+    return w0, w1
 
 if __name__ == '__main__':
 
@@ -57,5 +56,6 @@ if __name__ == '__main__':
     alpha = 0.01
     ep = 0.01
 
-    theta0, theta1 = gradient_descent(alpha, x, y, ep, max_iter=1500)
-    print ('theta0 = ' + str(theta0)+' theta1 = '+str(theta1))
+    weight0, weight1 = gradient_descent(alpha, x, y, ep, max_iter=1500)
+    print('\nLast weights: weight0 = ' + str(weight0)+'; weight1 = '+str(weight1))
+    print('\n')
