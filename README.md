@@ -1,6 +1,16 @@
-[Task explanation taken from here](https://github.com/rustam-azimov/ml-course/blob/main/tasks/task01_linregr_gd.md).
+# Repository structure
+
+* [README](https://github.com/gereltuya/ml-linregr-gd/blob/main/README.md) contains Task completion checklist.
+* [Jupyter notebook](https://github.com/gereltuya/ml-linregr-gd/blob/main/ml-linregr-gd.ipynb) contains the final state of all the code and results.
+* [Python file](https://github.com/gereltuya/ml-linregr-gd/blob/main/ml-linregr-gd.py) contains exactly the same code content as the notebook above.
+* [Requirement list](https://github.com/gereltuya/ml-linregr-gd/blob/main/requirements.txt) is self-explanatory.
+* [Data folder](https://github.com/gereltuya/ml-linregr-gd/tree/main/data) contains 2 different datasets used.
+* [Images folder](https://github.com/gereltuya/ml-linregr-gd/tree/main/images) contains resulting images from analysis, training and testing.
+* [Modules folder](https://github.com/gereltuya/ml-linregr-gd/tree/main/modules) contains 2 raw files used while completing this homework.
 
 # Task 1. Linear Regression, Gradient Descent Method
+
+Task explanation taken from [here](https://github.com/rustam-azimov/ml-course/blob/main/tasks/task01_linregr_gd.md).
 
 * **Deadline**: 31.10.2022, 23:59
 * Main full score: 5
