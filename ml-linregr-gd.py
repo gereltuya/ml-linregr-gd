@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# - [x] Самостоятельно реализовать функцию **gradient_descent(X, y)**, которая по заданной обучающей выборке обучает модель линейной регрессии, оптимизируя функционал методом градиентного спуска (Batch Gradient Descent, GD) и возвращая вектор весов **w**. В качестве функционала можно выбрать, например, функцию ошибок **MSE** + $L_2$-регуляризатор. Использовать матрично-векторные операции для вычисления градиента.
+# - [x] Independently implement the function **gradient_descent(X, y)**, which trains a linear regression model for a given training sample, optimizing the functional using the gradient descent method (Batch Gradient Descent, GD) and returning the weight vector **w**. As a functional, one can choose, for example, the error function **MSE** + $L_2$-regulator. Use matrix-vector operations to calculate the gradient.
 
 # In[1]:
 
