@@ -27,9 +27,9 @@ Task explanation taken from [here](https://github.com/rustam-azimov/ml-course/bl
 - [x] Use data scaling when training models.
 - [x] Train the model on the training set using the **gradient_descent(X, y)** function. Assess model quality on training and test sets using **MSE**, **RMSE** and $R^2$.
 - [x] Train the model using the existing library. For example, in **sklearn** you can use **Ridge** for the $L_2$ regularizer. Compare the quality with your implementation.
-- [ ] Repeat the same, but using cross-validation.
-- [ ] Create a table, with rows (mse-train, mse-test, rmse-train, rmse-test, r2-train, r2-test) and columns (Fold1, Fold2, ..., Foldk, E, STD) , where k --- number of folds in cross-validation, E --- mat. expectation and STD --- standard deviation. To conclude.
+- [x] Repeat the same, but using cross-validation.
+- [x] Create a table, with rows (mse-train, mse-test, rmse-train, rmse-test, r2-train, r2-test) and columns (Fold1, Fold2, ..., Foldk, E, STD) , where k --- number of folds in cross-validation, E --- mat. expectation and STD --- standard deviation. To conclude.
 - [x] * (+1 point) Before training models, select the best number (and the subset itself) of features, for example, using Recursive Feature Elimination (RFE).
-- [x] * (+1 point) In all your implementations, add the ability to adjust the necessary hyperparameters, and in the process of training **all** models, select the optimal values ​​of these hyperparameters.
+- [x] * (+1 point) In all your implementations, add the ability to adjust the necessary hyperparameters, and in the process of training **all** models, select the optimal values of these hyperparameters.
 - [ ] * (+2 points) Also independently implement the Stochastic Gradient Descent (SGD) method, train the models and add them to all comparisons.
 - [ ] * (+2 points) Also independently implement the Mini Batch Gradient Descent method, train the models and add them to all comparisons.
